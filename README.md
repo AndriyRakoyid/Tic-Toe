@@ -33,3 +33,16 @@ bool isDraw() {
     }
     return true;
 }
+void makeMove(char player) {
+    int move;
+    cout << "Player " << player << ", enter your move (1-9): ";
+    cin >> move;
+    int row = (move - 1) / SIZE;
+    int col = (move - 1) % SIZE;
+    if (board[row][col] != 'X' && board[row][col] != 'O') {
+        board[row][col] = player;
+    } else {
+        cout << "Invalid move, try again." << endl;
+        makeMove(player);
+    }
+}
