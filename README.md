@@ -23,3 +23,13 @@ bool isWinner(char player) {
     }
     return false;
 }
+bool isDraw() {
+    for (int i = 0; i < SIZE; ++i) {
+        for (int j = 0; j < SIZE; ++j) {
+            if (board[i][j] != 'X' && board[i][j] != 'O') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
