@@ -46,3 +46,21 @@ void makeMove(char player) {
         makeMove(player);
     }
 }
+int main() {
+    char currentPlayer = 'X';
+    bool gameWon = false;
+    while(!gameWon && !isDraw()) {
+        displayBoard();
+        makeMove(currentPlayer);
+        gameWon = isWinner(currentPlayer);
+        if (gameWon) {
+            displayBoard();
+            cout << "Player " << currentPlayer << " wins!" << endl;
+        } else if (isDraw()) {
+            displayBoard();
+            cout << "The game is a draw!" << endl;
+        }
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+    return 0;
+}
